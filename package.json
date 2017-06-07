@@ -1,0 +1,16 @@
+{
+  "name": "@ericnakamoto/chainbyteswallet",
+  "version": "0.0.1",
+  "description": "Simple Standalone Bitcoin Wallet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bitcoin",
+    "wallet",
+    "nodejs"
+  ],
+  "author": "Eric Grill",
+  "license": "GPL-3.0"
+}
