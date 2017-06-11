@@ -1,6 +1,6 @@
 {
   "name": "chainbyteswallet",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Simple Standalone Bitcoin Wallet",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "chai": "^4.0.2",
     "grunt": "^1.0.1",
     "grunt-bump": "^0.8.0",
+    "grunt-publish": "^1.0.0",
     "mocha": "^3.4.2"
   }
 }
