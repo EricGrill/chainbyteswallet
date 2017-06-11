@@ -2,7 +2,6 @@ const bitcoin = require("bitcoinjs-lib");
 const logger = require('winston');
 logger.level = "debug";
 const apiCall = require('../src/apiCall.js');
-const blockexplorer = require('blockchain.info/blockexplorer');
 const pushtx = require('blockchain.info/pushtx');
 let fee = 50000;  // Need to create a more dynamic fee
 module.exports = {
@@ -14,7 +13,8 @@ module.exports = {
         return new Promise((fulfill, reject) => {
             apiCall.getData("https://www.bitstamp.net/api/ticker/").then((btcprice) => {
                 const priceBTC = btcprice.ask;
-                blockexplorer.getAddress(payor.address, null).then((blockchaindata) => {
+                let query = "https://blockchain.info/address/" + payor.address + "?format=json";
+                apiCall.getData(query).then((blockchaindata) => {
                     let key = bitcoin.ECPair.fromWIF(payor.wif);
                     let tx = new bitcoin.TransactionBuilder();
                     let amount = 0;
@@ -64,8 +64,7 @@ module.exports = {
                             reject(err);
                         });
                     }
-                    else
-                    {
+                    else {
                         fulfill(true);
                     }
                 });
