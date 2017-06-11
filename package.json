@@ -4,7 +4,8 @@
   "description": "Simple Standalone Bitcoin Wallet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "test": "mocha"
   },
   "keywords": [
     "bitcoin",
@@ -12,5 +13,12 @@
     "nodejs"
   ],
   "author": "Eric Grill",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "bitcoinjs-lib": "^3.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
 }
