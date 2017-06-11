@@ -58,13 +58,15 @@ module.exports = {
                     /*        const lengthTransaction = tx.build().toHex().length / 2;
                      console.log("Transaction size: ", lengthTransaction);*/
                     if (!test) {
-                        console.log(test);
-                        console.log("ACTUAL");
                         pushtx.pushtx(tx.build().toHex(), null).then((result) => {
                             fulfill(result)
                         }).catch(function (err) {
                             reject(err);
                         });
+                    }
+                    else
+                    {
+                        fulfill(true);
                     }
                 });
             })
