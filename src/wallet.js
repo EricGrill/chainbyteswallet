@@ -43,6 +43,10 @@ module.exports = {
                         logger.debug("Fee is more than amount sending");
                         fee = amount;
                     }
+                    if (Total < amount) {
+                        reject("Not enough coin to pay total " + Total + "  " + amount);
+                        return;
+                    }
                     logger.log('debug', "Total: " + Total);
                     logger.log('debug', "Amount: " + amount);
                     logger.log('debug', "Fee: " + fee);
@@ -55,17 +59,17 @@ module.exports = {
                     // console.log(tx);
                     tx.sign(0, key);
                     logger.log("info", tx);
-                    /*        const lengthTransaction = tx.build().toHex().length / 2;
-                     console.log("Transaction size: ", lengthTransaction);*/
+                    const lengthTransaction = tx.build().toHex().length / 2;
+                    console.log("Transaction size: ", lengthTransaction);
                     if (!test) {
                         pushtx.pushtx(tx.build().toHex(), null).then((result) => {
-                            fulfill(result)
+                            fulfill(amount)
                         }).catch(function (err) {
                             reject(err);
                         });
                     }
                     else {
-                        fulfill(true);
+                        fulfill(amount);
                     }
                 });
             })

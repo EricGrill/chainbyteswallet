@@ -1,11 +1,11 @@
 # Chainbyteswallet
-
 Simple Standalone Wallet
 
 ## Installation
 
-  npm install chainbyteswallet --save
-
+```
+npm install chainbyteswallet --save
+```
 ## To Use
 
 ```
@@ -26,5 +26,7 @@ wallet.pushPayment(payee,payor,true).then((result)=> {
 
 ## Tests
 
-  npm test
+```
+npm test
+```
 
