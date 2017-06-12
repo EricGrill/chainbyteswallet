@@ -9,7 +9,7 @@ module.exports = {
         const keyPair = bitcoin.ECPair.makeRandom();
         return {address: keyPair.getAddress(), wif: keyPair.toWIF()};
     },
-    pushPayment: (payees, payor, test) => {
+    pushPayment: (payees, payor) => {
         return new Promise((fulfill, reject) => {
             apiCall.getData("https://www.bitstamp.net/api/ticker/").then((btcprice) => {
                 const priceBTC = btcprice.ask;
@@ -43,7 +43,7 @@ module.exports = {
                         logger.debug("Fee is more than amount sending");
                         fee = amount;
                     }
-                    if (Total < amount) {
+                    if (Total < amount && process.env.NODE_ENV.trim() != 'dev') {
                         reject("Not enough coin to pay total " + Total + "  " + amount);
                         return;
                     }
@@ -61,7 +61,8 @@ module.exports = {
                     logger.log("info", tx);
                     const lengthTransaction = tx.build().toHex().length / 2;
                     console.log("Transaction size: ", lengthTransaction);
-                    if (!test) {
+                    if (process.env.NODE_ENV.trim() != 'dev') {
+                        console.log("Sending");
                         pushtx.pushtx(tx.build().toHex(), null).then((result) => {
                             fulfill(amount)
                         }).catch(function (err) {
@@ -69,6 +70,7 @@ module.exports = {
                         });
                     }
                     else {
+                        logger.log('info', 'Dev environment not sending');
                         fulfill(amount);
                     }
                 });
