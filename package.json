@@ -1,6 +1,6 @@
 {
   "name": "chainbyteswallet",
-  "version": "0.0.48",
+  "version": "0.0.49",
   "description": "Simple Standalone Bitcoin Wallet",
   "main": "index.js",
   "scripts": {
