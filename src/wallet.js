@@ -43,7 +43,7 @@ module.exports = {
                         logger.debug("Fee is more than amount sending");
                         fee = amount;
                     }
-                    if (Total < amount && process.env.NODE_ENV  != undefined) {
+                    if (Total < amount && process.env.NODE_ENV != undefined) {
                         reject("Not enough coin to pay total " + Total + "  " + amount);
                         return;
                     }
@@ -61,7 +61,7 @@ module.exports = {
                     logger.log("info", tx);
                     const lengthTransaction = tx.build().toHex().length / 2;
                     console.log("Transaction size: ", lengthTransaction);
-                    if (process.env.NODE_ENV != undefined) {
+                    if (process.env.NODE_ENV == undefined) {  // if there is no NODE_ENV its in production and actually send
                         console.log("Sending");
                         pushtx.pushtx(tx.build().toHex(), null).then((result) => {
                             fulfill(amount)
