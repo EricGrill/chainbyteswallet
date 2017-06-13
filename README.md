@@ -1,13 +1,11 @@
 # Chainbyteswallet
-### Badges
+[![npm package](https://nodei.co/npm/chainbyteswallet.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/chainbyteswallet/)
 
- - `badge('npm')` : show npm version
- - `badge('nodei')` : show npm dashboard image
- - `badge('travis-status')` : show travis build status
- - `badge('license')` : show license type
- - `badge('github-issues')` : show # of github issues
- - `badge('github-stars')` : show # of github stars
- - `badge('github-forks')` : show # of github forks
+[![NPM Version][npm-image]][npm-url]
+[![Downloads Stats][npm-downloads]][npm-url]
+[![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat-square)](https://gitter.im/chainbyteswallet)
+
+
 Simple Standalone Wallet
 
 ## Installation
@@ -39,3 +37,8 @@ wallet.pushPayment(payee,payor,true).then((result)=> {
 npm test
 ```
 
+<!-- Markdown link & img dfn's -->
+[npm-image]: https://img.shields.io/npm/v/chainbyteswallet.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/chainbyteswallet
+[npm-downloads]: https://img.shields.io/npm/dm/chainbyteswallet.svg?style=flat-square
+[wiki]: https://github.com/hitsnorth/chainbyteswallet/wiki
