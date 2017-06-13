@@ -1,4 +1,13 @@
 # Chainbyteswallet
+### Badges
+
+ - `badge('npm')` : show npm version
+ - `badge('nodei')` : show npm dashboard image
+ - `badge('travis-status')` : show travis build status
+ - `badge('license')` : show license type
+ - `badge('github-issues')` : show # of github issues
+ - `badge('github-stars')` : show # of github stars
+ - `badge('github-forks')` : show # of github forks
 Simple Standalone Wallet
 
 ## Installation
