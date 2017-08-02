@@ -1,5 +1,4 @@
-var pkgJson = require('./package.json');
-module.exports = function (grunt) {
+module.exports = (grunt) => {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
