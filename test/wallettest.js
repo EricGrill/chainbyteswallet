@@ -1,5 +1,5 @@
 require('dotenv').config();
-process.env.NODE_ENV='dev';
+process.env.NODE_ENV = 'dev';
 const bitcoin = require('bitcoinjs-lib')
 const payee = [{"name": "Person1", "wallet": "1983LDmpGo1iBjz9AAqNEStcaGiya8Wx8N", "amount": 66.67},
     {"name": "Person2", "wallet": "17J1VUivqLNzw89k5aEfZz3rBk9Pg7hWyY", "amount": 66.67}]
@@ -14,19 +14,33 @@ describe('Wallet', function () {
         });
     });
     describe("#pushPayment", () => {
-        it("Pushing payment", () => {
-            wallet.pushPayment(payee, {address: newAddress.address, wif: newAddress.wif},'TestCode').then((result) => {
+        it("Pushing payment with opcode", () => {
+            wallet.pushPayment(payee, {address: newAddress.address, wif: newAddress.wif}, 'TestCode').then((result) => {
                 result.should.be.a('object');
             });
         });
-    })
-    describe("#calculateSize", () => {
-        it("checkingSize", () => {
-            tx = new bitcoin.TransactionBuilder();
-            wallet.calculateFee(tx).then((result) => {
-                result.should.be.a('number');
+        it("Pushing payment without opcode", () => {
+            wallet.pushPayment(payee, {address: newAddress.address, wif: newAddress.wif}).then((result) => {
+                result.should.be.a('object');
             });
         });
+
     })
+    describe("checkingBitcoinAccount", () => {
+        it("getaccount", () => {
+            wallet.getAccount("").then((result) => {
+                result.should.be.a('object');
+            })
+        });
+    });
+
+})
+describe("#calculateSize", () => {
+    it("checkingSize", () => {
+        tx = new bitcoin.TransactionBuilder();
+        wallet.calculateFee(tx).then((result) => {
+            result.should.be.a('number');
+        });
+    });
 });
 
