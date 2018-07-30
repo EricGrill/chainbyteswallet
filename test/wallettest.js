@@ -4,7 +4,8 @@ const payee = [{"name": "Person1", "wallet": "1983LDmpGo1iBjz9AAqNEStcaGiya8Wx8N
     {"name": "Person2", "wallet": "17J1VUivqLNzw89k5aEfZz3rBk9Pg7hWyY", "amount": 66.67}]
 const should = require('chai').should(),
     wallet = require("../src/wallet.js"),
-    newAddress = wallet.getNewAddress()
+    newAddress = wallet.getNewAddress();
+console.log(newAddress);
 describe('Wallet', function () {
     describe('#getNewAddress', () => {
         it('New Bitcoin Address', function () {
