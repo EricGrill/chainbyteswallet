@@ -26,8 +26,11 @@ const payee = [{"name": "Person1", "wallet": "1983LDmpGo1iBjz9AAqNEStcaGiya8Wx8N
 
 
 // 2 people paid $5 USD worth of btc name,wallet,amount array of bitcoin wallets to send usdAmount to.
-wallet.pushPayment(payee,payor,true).then((result)=> {
+wallet.pushPayment(payee,payor,'text in transaction opcode').then((result)=> {
     console.log(result);
+})
+wallet.getAccount(payee[0].wallet).then((result) => {
+    console.log(result)  // Show transaction of payments to that address
 })
 ```
 
