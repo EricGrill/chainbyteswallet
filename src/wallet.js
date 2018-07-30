@@ -9,6 +9,10 @@ module.exports = {
         const keyPair = bitcoin.ECPair.makeRandom();
         return {address: keyPair.getAddress(), wif: keyPair.toWIF()};
     },
+    calculateSize: (Transaction) => {
+        const txSize = (Transaction.tx.ins.length * 180 + Transaction.tx.outs.length * 34 + 10 + -Transaction.tx.ins.length);
+        return txSize; // Transaction size in Bytes
+    },
     pushPayment: (payees, payor) => {
         return new Promise((fulfill, reject) => {
             apiCall.getData("https://www.bitstamp.net/api/ticker/").then((btcprice) => {
