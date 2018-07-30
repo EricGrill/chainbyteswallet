@@ -28,7 +28,7 @@ describe('Wallet', function () {
     })
     describe("checkingBitcoinAccount", () => {
         it("getaccount", () => {
-            wallet.getAccount("").then((result) => {
+            wallet.getAccount("1AjaQ4erWV3ae3PHNrnennp4FqUF6JA6FN").then((result) => {
                 result.should.be.a('object');
             })
         });

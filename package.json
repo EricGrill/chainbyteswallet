@@ -14,7 +14,9 @@
   "keywords": [
     "bitcoin",
     "wallet",
-    "nodejs"
+    "nodejs",
+    "chainbytes",
+    "blockchain"
   ],
   "author": "Eric Grill",
   "license": "GPL-3.0",
