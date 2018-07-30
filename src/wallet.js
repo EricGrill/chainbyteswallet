@@ -38,9 +38,7 @@ module.exports = {
         return {address: keyPair.getAddress(), wif: keyPair.toWIF()};
     },
     calculateSize: calcSize,
-    // feeType low,medium,high
-    calculateFee: calcFee,
-
+    calculateFee: calcFee,     // feeType low,medium,high
     pushPayment: (payees, payor, opcode) => {
         return new Promise((fulfill, reject) => {
             const data = new Buffer(opcode);
@@ -48,7 +46,7 @@ module.exports = {
                 const priceBTC = btcprice.ask;
                 let query = "https://blockchain.info/address/" + payor.address + "?format=json";
                 apiCall.getData(query).then((blockchaindata) => {
-                    let key = bitcoin.ECPair.fromWIF(payor.wif);
+                    let key = bitcoin.ECPair.fromWIF(payor.wif); // TODO: Support other private keys
                     let tx = new bitcoin.TransactionBuilder();
                     let amount = 0;
                     payees.forEach((payee) => {
