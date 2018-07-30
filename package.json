@@ -1,6 +1,6 @@
 {
   "name": "chainbyteswallet",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "Simple Standalone Bitcoin Wallet",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,10 @@
   "keywords": [
     "bitcoin",
     "wallet",
-    "nodejs"
+    "chainbytes",
+    "blockchain",
+    "opcode",
+    "opreturn"
   ],
   "author": "Eric Grill",
   "license": "GPL-3.0",
