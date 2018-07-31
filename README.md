@@ -18,8 +18,9 @@ npm install chainbyteswallet --save
 ```
 // Must set the address and wif to your public address and private key to send from
 
+const wif='';
+const address = '';
 const wallet = require("chainbyteswallet");
-
 const payor = {"address": address, "wif": wif};
 const payee = [{"name": "Person1", "wallet": "1983LDmpGo1iBjz9AAqNEStcaGiya8Wx8N", "amount": 5},
                 {"name": "Person2", "wallet": "17J1VUivqLNzw89k5aEfZz3rBk9Pg7hWyY", "amount": 5}]
@@ -35,7 +36,7 @@ wallet.getAccount(payee[0].wallet).then((result) => {
 ```
 
 ## Tests
-
+// Mocha tests
 ```
 npm test
 ```
